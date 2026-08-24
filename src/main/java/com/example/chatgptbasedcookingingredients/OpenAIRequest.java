@@ -19,4 +19,8 @@ import java.util.List;
 
 public record OpenAIRequest(String model,
                             List<OpenAiMessages> messages) {
+
+    public OpenAIRequest(String model, String prompt) {
+        this(model, List.of(new OpenAiMessages("user", prompt)));
+    }
 }
